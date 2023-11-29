@@ -20,5 +20,6 @@ Pip install nltk
 ```
 
 ## Update
-There is a current issues that will be fixed 
+There is 2 current issues that will be fixed 
 - There is somthing that is marking the release as a virus, it is not
+- For some odd reason, the text is not being retrieved
