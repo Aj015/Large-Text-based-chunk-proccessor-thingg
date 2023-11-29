@@ -1,13 +1,9 @@
-import nltk
-from nltk.tokenize import sent_tokenize, word_tokenize
 import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import ttk
 
-nltk.download('punkt')
-
 def count_words_and_characters(chunk):
-    words = word_tokenize(chunk)
+    words = chunk.split()
     word_count = len(words)
     char_count = sum(len(word) for word in words)
     return word_count, char_count
@@ -16,11 +12,11 @@ def split_text_into_chunks(text, unit, max_measure, num_chunks):
     if unit == "characters":
         measure_function = len
     elif unit == "words":
-        measure_function = lambda x: len(word_tokenize(x))
+        measure_function = lambda x: len(x.split())
     else:
-        measure_function = lambda x: len(word_tokenize(x))
+        measure_function = lambda x: len(x.split())
 
-    sentences = sent_tokenize(text)
+    sentences = text.split('\n')
     current_chunk = []
     current_measure = 0
     chunks = []
@@ -43,7 +39,7 @@ def process_text():
     input_text = input_text_widget.get("1.0",'end-1c')
     unit = measure_unit_var.get()
     max_measure = int(max_measure_entry.get())
-    num_chunks = int(number_chuncks.get())
+    num_chunks = int(5)
     text_chunks = split_text_into_chunks(input_text, unit, max_measure, num_chunks)
 
     # result window
@@ -63,7 +59,6 @@ def process_text():
 
 root = tk.Tk()
 root.title("Text Chunker")
-number_chuncks = 5
 
 # Text input area
 input_text_widget = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=60, height=10)
@@ -78,11 +73,9 @@ measure_unit_frame.pack()
 
 measure_unit_chars = ttk.Radiobutton(measure_unit_frame, text="Characters", variable=measure_unit_var, value="characters")
 measure_unit_words = ttk.Radiobutton(measure_unit_frame, text="Words", variable=measure_unit_var, value="words")
-measure_unit_tokens = ttk.Radiobutton(measure_unit_frame, text="Tokens", variable=measure_unit_var, value="tokens")
 
 measure_unit_chars.grid(row=0, column=0)
 measure_unit_words.grid(row=0, column=1)
-measure_unit_tokens.grid(row=0, column=2)
 
 #  max measurement enter
 max_measure_label = tk.Label(root, text="Maximum Measurement:")
@@ -99,3 +92,4 @@ process_button = tk.Button(root, text="Process Text", command=process_text)
 process_button.pack(pady=10)
 
 root.mainloop()
+
