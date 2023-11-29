@@ -7,19 +7,14 @@ A program written in Python to divide large-ass texts into less big, and more pa
 - text entry to change the measurement amount per chunk.
 
 ## Prerequisites 
-For the source code In this repo, there are two libraries in use.
-- Tkinter, that usually comes with an installation of Python.
-- nltk, for tokenization of the text.
+For the source code In this repo, there is 1 library in use.
+- Tkinter, that usually comes with an installation of Python, and responsible for the gui that the program uses.
 
 ```
 Pip install Tkinter
 ```
 
-```
-Pip install nltk
-```
-
 ## Update
 There is 2 current issues that will be fixed 
-- There is somthing that is marking the release as a virus, it is not
+- There is somthing that is marking release 1.00 as a virus, it is not
 - For some odd reason, the text is not being retrieved
