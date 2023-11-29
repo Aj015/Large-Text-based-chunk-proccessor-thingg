@@ -19,4 +19,6 @@ Pip install Tkinter
 Pip install nltk
 ```
 
-
+## Update
+There is a current issues that will be fixed 
+- There is somthing that is marking the release as a virus, it is not
