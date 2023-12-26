@@ -11,7 +11,7 @@ For the source code In this repo, there is 1 library in use.
 - Tkinter, that usually comes with an installation of Python, and responsible for the gui that the program uses.
 
 ```
-Pip install Tkinter
+pip install Tkinter
 ```
 
 ## Update
